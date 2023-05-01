@@ -1,10 +1,13 @@
 const express = require ('express');
 const router = express.Router ();
-const createTeacherValidator = require ('./../middleware/validators/teachers/createTeacher');
-const updateTeacherValidator = require ('./../middleware/validators/teachers/updateTeacher');
-const getTeacherValidator = require ('./../middleware/validators/teachers/getTeacher');
-const deleteTeacherValidator = require ('./../middleware/validators/teachers/deleteTeacher');
 const checkValidationResult = require ('./../middleware/validators/validationMW');
+
+const {
+  updateTeacherValidator,
+  getTeacherValidator,
+  deleteTeacherValidator,
+  createTeacherValidator,
+} = require ('./../middleware/validators/teachers/teacherValidations');
 
 const {
   getAllTeachers,

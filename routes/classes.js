@@ -1,9 +1,12 @@
 const express = require ('express');
 const router = express.Router ();
-const createClassValidator = require ('./../middleware/validators/classes/createClass');
-const updateClassValidator = require ('./../middleware/validators/classes/updateClass');
-const getClassValidator = require ('./../middleware/validators/classes/getClass');
-const deleteClassValidator = require ('./../middleware/validators/classes/deleteClass');
+const {
+  createClassValidator,
+  updateClassValidator,
+  getClassValidator,
+  deleteClassValidator,
+} = require ('./../middleware/validators/classes/classesValidations');
+
 const checkValidationResult = require ('./../middleware/validators/validationMW');
 
 const {

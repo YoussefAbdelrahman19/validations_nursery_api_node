@@ -1,9 +1,12 @@
 const express = require ('express');
 const router = express.Router ();
-const createChildValidator = require ('./../middleware/validators/children/createChild');
-const updateChildValidator = require ('./../middleware/validators/children/updateChild');
-const getChildValidator = require ('./../middleware/validators/children/getChild');
-const deleteChildValidator = require ('./../middleware/validators/children/deleteChild');
+const {
+  createChildValidator,
+  updateChildValidator,
+  getChildValidator,
+  deleteChildValidator,
+} = require ('./../middleware/validators/children/childrenValidations');
+
 const checkValidationResult = require ('./../middleware/validators/validationMW');
 
 const {
