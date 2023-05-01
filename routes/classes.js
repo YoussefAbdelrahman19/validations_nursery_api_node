@@ -1,0 +1,27 @@
+const express = require ('express');
+const router = express.Router ();
+const createClassValidator = require ('./../middleware/validators/classes/createClass');
+const updateClassValidator = require ('./../middleware/validators/classes/updateClass');
+const getClassValidator = require ('./../middleware/validators/classes/getClass');
+const deleteClassValidator = require ('./../middleware/validators/classes/deleteClass');
+const checkValidationResult = require ('./../middleware/validators/validationMW');
+
+const {
+  getAllClasses,
+  createClass,
+  getClass,
+  updateClass,
+  deleteClass,
+} = require ('../controllers/classes');
+
+router
+  .route ('/')
+  .get (getAllClasses)
+  .post (createClassValidator, checkValidationResult, createClass);
+router
+  .route ('/:id?')
+  .get (getClassValidator, checkValidationResult, getClass)
+  .patch (updateClassValidator, checkValidationResult, updateClass)
+  .delete (deleteClassValidator, checkValidationResult, deleteClass);
+
+module.exports = router;
